@@ -19,9 +19,7 @@ export default function Hello() {
 					<tspan className="char" dy="0">
 						l
 					</tspan>
-					<tspan className="char" dy="0">
-						l
-					</tspan>
+					<tspan className="char" dy="0"></tspan>
 					<tspan className="char" dy="0">
 						o
 					</tspan>
