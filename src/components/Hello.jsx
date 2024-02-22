@@ -2,7 +2,7 @@ export default function Hello() {
 	return (
 		<div className="h-lvh">
 			<svg className="text-9xl pt-40 pl-10 md:pt-15 md:pl-20">
-				<text textAnchor="middle" x="50%" y="50%">
+				<text textAnchor="middle" x="50%" y="55%">
 					<tspan
 						className="animate-pulse"
 						style={{ animationDelay: "0s" }}
