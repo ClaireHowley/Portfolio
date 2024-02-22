@@ -1,8 +1,14 @@
-// import React from "react";
+// import { useEffect } from "react";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
-export default function AboutMe() {
+export default function AboutMe({ dataAos }) {
+	// useEffect(() => {
+	// 	AOS.init({ duration: 2000 });
+	// }, []);
+
 	return (
-		<div className="bg-white h-lvh">
+		<div className="bg-white h-lvh" data-aos={dataAos}>
 			<div className="font-extrabold text-center">About Me</div>
 			<p>
 				AD LOREM IPSUM GENERATOR Lorem ipsum dolor sit amet, consectetur

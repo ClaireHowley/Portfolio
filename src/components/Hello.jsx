@@ -1,26 +1,41 @@
-// import React from "react";
-import "./Hello.css";
-
 export default function Hello() {
 	return (
-		<div className="site-container h-lvh text-9xl">
-			<svg className="blinking-chars text-blue-300">
-				<text
-					textAnchor="middle"
-					x="50%"
-					y="50%"
-					className="blinking-chars-group">
-					<tspan className="char" dy="0">
+		<div className="h-lvh">
+			<svg className="text-9xl pt-40 pl-10 md:pt-15 md:pl-20">
+				<text textAnchor="middle" x="50%" y="50%">
+					<tspan
+						className="animate-pulse"
+						style={{ animationDelay: "0s" }}
+						dy="0"
+						fill="blue">
 						H
 					</tspan>
-					<tspan className="char" dy="0">
+					<tspan
+						className="animate-pulse"
+						style={{ animationDelay: "0.4s" }}
+						dy="0"
+						fill="blue">
 						e
 					</tspan>
-					<tspan className="char" dy="0">
+					<tspan
+						className="animate-pulse"
+						style={{ animationDelay: "0.8s" }}
+						dy="0"
+						fill="blue">
 						l
 					</tspan>
-					<tspan className="char" dy="0"></tspan>
-					<tspan className="char" dy="0">
+					<tspan
+						className="animate-pulse"
+						style={{ animationDelay: "1.2s" }}
+						dy="0"
+						fill="blue">
+						l
+					</tspan>
+					<tspan
+						className="animate-pulse"
+						style={{ animationDelay: "1.6s" }}
+						dy="0"
+						fill="blue">
 						o
 					</tspan>
 				</text>
