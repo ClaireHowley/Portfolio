@@ -5,8 +5,6 @@ import {
 	XMarkIcon,
 } from "@heroicons/react/24/solid";
 
-// import Hello from "./Hello";
-
 export default function NavBar() {
 	let Links = [
 		// { name: "HOME", link: "/" },
