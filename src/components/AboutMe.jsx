@@ -3,13 +3,15 @@ import Claire from "../images/Claire.jpg";
 export default function AboutMe({ dataAos }) {
 	return (
 		<div
-			className="bg-white h-lvh flex items-stretch relative rounded-full m-10"
+			className="bg-white h-lvh flex items-stretch relative rounded-full m-10 overflow-hidden"
 			data-aos={dataAos}>
 			{/* Content Half */}
 			<div className="w-1/2 flex items-center">
 				<div className="w-full text-center p-4 md:p-10">
-					<h2 className="font-extrabold">About Me</h2>
-					<p>
+					<h2 className="font-extrabold text-2xl md:text-3xl lg:text-4xl">
+						About Me
+					</h2>
+					<p className="text-sm sm:text-base md:text-lg lg:text-xl">
 						AD LOREM IPSUM GENERATOR Lorem ipsum dolor sit amet, consectetur
 						adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
