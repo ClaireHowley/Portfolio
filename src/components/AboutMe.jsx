@@ -3,6 +3,7 @@ import Claire from "../images/Claire.jpg";
 export default function AboutMe({ dataAos }) {
 	return (
 		<div
+			id="about"
 			className="bg-white h-lvh flex items-stretch relative rounded-full m-10 overflow-hidden"
 			data-aos={dataAos}>
 			{/* Content Half */}

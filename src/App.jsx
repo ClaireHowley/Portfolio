@@ -4,8 +4,10 @@ import Hello from "./components/Hello";
 import NavBar from "./components/NavBar";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
 	useEffect(() => {
@@ -13,12 +15,15 @@ function App() {
 	}, []);
 
 	return (
-		<div className="bg-yellow-200 font-sans">
-			<NavBar />
-			<Hello className="pt-20" />
-			<AboutMe dataAos="zoom-in" />
-			<Projects />
-		</div>
+		<BrowserRouter>
+			<div className="bg-yellow-200 font-sans">
+				<NavBar />
+				<Hello className="pt-20" />
+				<AboutMe dataAos="zoom-in" />
+				<Projects />
+				<Contact />
+			</div>
+		</BrowserRouter>
 	);
 }
 

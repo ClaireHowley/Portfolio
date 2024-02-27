@@ -3,6 +3,9 @@ export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {},
+		position: {
+			sticky: "sticky",
+		},
 	},
 	plugins: ["tailwindcss-animate"],
 };

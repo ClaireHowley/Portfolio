@@ -4,18 +4,19 @@ import {
 	Bars3BottomRightIcon,
 	XMarkIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 	let Links = [
 		// { name: "HOME", link: "/" },
-		{ name: "ABOUT", link: "/" },
-		{ name: "PROJECTS", link: "/" },
-		{ name: "CONTACT", link: "/" },
+		{ name: "ABOUT", link: "about" },
+		{ name: "PROJECTS", link: "projects" },
+		{ name: "CONTACT", link: "contact" },
 	];
 	let [open, setOpen] = useState(false);
 
 	return (
-		<div className="shadow-md w-full fixed top-0 left-0">
+		<div className="shadow-md w-full fixed top-0 left-0 z-20">
 			<div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
 				{/* logo section */}
 				<div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
@@ -35,11 +36,11 @@ export default function NavBar() {
 					}`}>
 					{Links.map((link, index) => (
 						<li className="md:ml-8 md:my-0 my-7 font-semibold" key={index}>
-							<a
-								href={link.link}
+							<Link
+								to={`#${link.link}`}
 								className="text-gray-800 hover:text-blue-400 duration-500">
 								{link.name}
-							</a>
+							</Link>
 						</li>
 					))}
 				</ul>
