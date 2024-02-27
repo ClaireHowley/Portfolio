@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
 	BookOpenIcon,
 	Bars3BottomRightIcon,
@@ -7,6 +7,8 @@ import {
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
+	const linksRef = useRef(null);
+
 	let Links = [
 		// { name: "HOME", link: "/" },
 		{ name: "ABOUT", link: "about" },
@@ -38,6 +40,7 @@ export default function NavBar() {
 					{Links.map((link, index) => (
 						<li className="md:ml-8 md:my-0 my-7 font-semibold" key={index}>
 							<Link
+								ref={linksRef}
 								to={`#${link.link}`}
 								className={
 									active === link.name
@@ -46,14 +49,10 @@ export default function NavBar() {
 								}
 								onClick={() => {
 									setActive(link.name);
-									const element = document.getElementById(link.link);
-									if (element) {
-										element.scrollIntoView({
-											behavior: "smooth",
-											block: "start",
-										});
-									}
-									setOpen(false); // Closes the small screen menu after clicking on a link
+									linksRef.current.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									});
 								}}>
 								{link.name}
 							</Link>
