@@ -14,6 +14,7 @@ export default function NavBar() {
 		{ name: "CONTACT", link: "contact" },
 	];
 	let [open, setOpen] = useState(false);
+	let [active, setActive] = useState("");
 
 	return (
 		<div className="shadow-md w-full fixed top-0 left-0 z-20">
@@ -38,7 +39,22 @@ export default function NavBar() {
 						<li className="md:ml-8 md:my-0 my-7 font-semibold" key={index}>
 							<Link
 								to={`#${link.link}`}
-								className="text-gray-800 hover:text-blue-400 duration-500">
+								className={
+									active === link.name
+										? "text-red-500"
+										: "text-gray-800 hover:text-blue-400 duration-500 cursor-pointer"
+								}
+								onClick={() => {
+									setActive(link.name);
+									const element = document.getElementById(link.link);
+									if (element) {
+										element.scrollIntoView({
+											behavior: "smooth",
+											block: "start",
+										});
+									}
+									setOpen(false); // Closes the small screen menu after clicking on a link
+								}}>
 								{link.name}
 							</Link>
 						</li>
