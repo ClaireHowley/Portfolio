@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+// NavBar.js
+import { useState } from "react";
 import {
 	BookOpenIcon,
 	Bars3BottomRightIcon,
@@ -6,15 +7,13 @@ import {
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
-export default function NavBar() {
-	const linksRef = useRef(null);
-
+export default function NavBar(scrollToRef) {
 	let Links = [
-		// { name: "HOME", link: "/" },
-		{ name: "ABOUT", link: "about" },
-		{ name: "PROJECTS", link: "projects" },
-		{ name: "CONTACT", link: "contact" },
+		{ name: "ABOUT", sectionId: "about" },
+		{ name: "PROJECTS", sectionId: "projects" },
+		{ name: "CONTACT", sectionId: "contact" },
 	];
+
 	let [open, setOpen] = useState(false);
 	let [active, setActive] = useState("");
 
@@ -40,8 +39,7 @@ export default function NavBar() {
 					{Links.map((link, index) => (
 						<li className="md:ml-8 md:my-0 my-7 font-semibold" key={index}>
 							<Link
-								ref={linksRef}
-								to={`#${link.link}`}
+								to={`#${link.sectionId}`}
 								className={
 									active === link.name
 										? "text-red-500"
@@ -49,10 +47,8 @@ export default function NavBar() {
 								}
 								onClick={() => {
 									setActive(link.name);
-									linksRef.current.scrollIntoView({
-										behavior: "smooth",
-										block: "start",
-									});
+									scrollToRef(link.sectionId);
+									setOpen(false);
 								}}>
 								{link.name}
 							</Link>
