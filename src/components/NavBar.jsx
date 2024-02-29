@@ -17,6 +17,12 @@ export default function NavBar(scrollToRef) {
 	let [open, setOpen] = useState(false);
 	let [active, setActive] = useState("");
 
+	const handleClick = () => {
+		if (open) {
+			setOpen(false);
+		}
+	};
+
 	return (
 		<div className="shadow-md w-full fixed top-0 left-0 z-20">
 			<div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
@@ -46,9 +52,9 @@ export default function NavBar(scrollToRef) {
 										: "text-gray-800 hover:text-blue-400 duration-500 cursor-pointer"
 								}
 								onClick={() => {
+									handleClick(); // call first to close menu before scrolling
 									setActive(link.name);
 									scrollToRef(link.sectionId);
-									setOpen(false);
 								}}>
 								{link.name}
 							</Link>
