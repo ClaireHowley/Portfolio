@@ -36,7 +36,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className="bg-yellow-200 font-sans">
-				<NavBar scrollToRef={() => scrollToRef()} />
+				<NavBar scrollToRef={scrollToRef} />
 				<Hello className="pt-20" />
 				<AboutMe id="about" ref={aboutRef} dataAos="zoom-in" />
 				<Projects id="projects" ref={projectsRef} />

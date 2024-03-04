@@ -1,8 +1,9 @@
-// import React from "react";
+import { forwardRef } from "react";
 
-export default function Projects() {
+const Projects = forwardRef((props, ref) => {
 	return (
 		<div
+			ref={ref}
 			id="projects"
 			className="h-screen flex flex-col justify-center items-center">
 			<h1 className="text-3xl font-bold mb-8">Projects</h1>
@@ -19,4 +20,7 @@ export default function Projects() {
 			</div>
 		</div>
 	);
-}
+});
+
+Projects.displayName = "Projects";
+export default Projects;

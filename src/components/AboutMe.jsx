@@ -1,9 +1,11 @@
 import Claire from "../images/Claire.jpg";
+import { forwardRef } from "react";
 
-export default function AboutMe({ dataAos }) {
+const AboutMe = forwardRef(({ dataAos }, ref) => {
 	return (
 		<div
 			id="about"
+			ref={ref} // Corrected assignment of ref
 			className="bg-white h-lvh flex items-stretch relative rounded-full m-10 overflow-hidden"
 			data-aos={dataAos}>
 			{/* Content Half */}
@@ -32,4 +34,8 @@ export default function AboutMe({ dataAos }) {
 			</div>
 		</div>
 	);
-}
+});
+
+AboutMe.displayName = "AboutMe"; // Adding display name
+
+export default AboutMe;

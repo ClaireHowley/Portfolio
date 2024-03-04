@@ -1,13 +1,14 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, forwardRef } from "react";
 import p5 from "p5";
+import Typewriter from "typewriter-effect";
 
-export default function Hello() {
+const Hello = forwardRef((props, ref) => {
 	const sketchRef = useRef();
 
 	useEffect(() => {
 		const sketch = new p5((p) => {
 			p.setup = () => {
-				p.createCanvas(400, 400);
+				p.createCanvas(80, 80);
 			};
 
 			p.draw = () => {
@@ -22,7 +23,7 @@ export default function Hello() {
 	}, []);
 
 	return (
-		<div className="h-lvh">
+		<div className="h-lvh" ref={ref}>
 			<svg className="text-9xl pt-40 pl-10 md:pt-15 md:pl-20">
 				<text textAnchor="middle" x="50%" y="55%">
 					<tspan
@@ -62,7 +63,19 @@ export default function Hello() {
 					</tspan>
 				</text>
 			</svg>
+			<Typewriter
+				options={{
+					strings: ["Hello"], // Define the strings directly here
+					autoStart: true, // Start typing immediately
+					wrapperClassName: "text-blue-600", // Apply Tailwind CSS class here
+				}}
+			/>
+
 			<div ref={sketchRef}></div>
 		</div>
 	);
-}
+});
+
+Hello.displayName = "Hello"; // Adding display name
+
+export default Hello;
