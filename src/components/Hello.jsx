@@ -1,77 +1,73 @@
-import { useRef, useEffect, forwardRef } from "react";
-import p5 from "p5";
-import Typewriter from "typewriter-effect";
+import { useRef, useEffect, forwardRef, useState } from "react";
+// import p5 from "p5";
+import { Typewriter } from "react-simple-typewriter";
 
 const Hello = forwardRef((props, ref) => {
-	const sketchRef = useRef();
+	const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-	useEffect(() => {
-		const sketch = new p5((p) => {
-			p.setup = () => {
-				p.createCanvas(80, 80);
-			};
+	// const sketchRef = useRef();
 
-			p.draw = () => {
-				p.background(220);
-				p.ellipse(p.mouseX, p.mouseY, 50, 50);
-			};
-		}, sketchRef.current);
+	// useEffect(() => {
+	//  const sketch = new p5((p) => {
+	//   p.setup = () => {
+	//    p.createCanvas(80, 80);
+	//   };
 
-		return () => {
-			sketch.remove();
-		};
-	}, []);
+	//   p.draw = () => {
+	//    p.background(220);
+	//    p.ellipse(p.mouseX, p.mouseY, 50, 50);
+	//   };
+	//  }, sketchRef.current);
+
+	//  return () => {
+	//   sketch.remove();
+	//  };
+	// }, []);
+
+	const generateTSpans = () => {
+		return props.word.split("").map((letter, index) => (
+			<tspan
+				key={index}
+				className="animate-pulse"
+				style={{ animationDelay: `${index * 0.4}s` }}
+				dy="0"
+				fill="blue">
+				{letter}
+			</tspan>
+		));
+	};
+
+	const handleDone = () => {
+		setIsTypingComplete(true);
+	};
 
 	return (
 		<div className="h-lvh" ref={ref}>
-			<svg className="text-9xl pt-40 pl-10 md:pt-15 md:pl-20">
-				<text textAnchor="middle" x="50%" y="55%">
-					<tspan
-						className="animate-pulse"
-						style={{ animationDelay: "0s" }}
-						dy="0"
-						fill="blue">
-						H
-					</tspan>
-					<tspan
-						className="animate-pulse"
-						style={{ animationDelay: "0.4s" }}
-						dy="0"
-						fill="blue">
-						e
-					</tspan>
-					<tspan
-						className="animate-pulse"
-						style={{ animationDelay: "0.8s" }}
-						dy="0"
-						fill="blue">
-						l
-					</tspan>
-					<tspan
-						className="animate-pulse"
-						style={{ animationDelay: "1.2s" }}
-						dy="0"
-						fill="blue">
-						l
-					</tspan>
-					<tspan
-						className="animate-pulse"
-						style={{ animationDelay: "1.6s" }}
-						dy="0"
-						fill="blue">
-						o
-					</tspan>
+			<svg className="text-6xl md:text-8xl pt-10 md:pt-15 w-full">
+				<text textAnchor="middle" x="30%" y="55%">
+					{generateTSpans()}
 				</text>
 			</svg>
-			<Typewriter
-				options={{
-					strings: ["Hello"], // Define the strings directly here
-					autoStart: true, // Start typing immediately
-					wrapperClassName: "text-blue-600", // Apply Tailwind CSS class here
-				}}
-			/>
-
-			<div ref={sketchRef}></div>
+			<div>
+				{!isTypingComplete && (
+					<Typewriter
+						words={["My name is Claire, I am a frontend developer"]}
+						loop={1}
+						cursor
+						cursorStyle="|"
+						typeSpeed={70}
+						deleteSpeed={50}
+						delaySpeed={1000}
+						// wrapperClassName={"text-blue-600"}
+						// onLoopDone={handleDone}
+					/>
+				)}
+				{isTypingComplete && (
+					<span className="text-blue-600">
+						My name is Claire, I am a frontend developer
+					</span>
+				)}
+			</div>
 		</div>
 	);
 });
