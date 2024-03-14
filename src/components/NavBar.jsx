@@ -5,22 +5,23 @@ import {
 	Bars3BottomRightIcon,
 	XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavBar({ scrollToRef }) {
 	let Links = [
-		{ name: "ABOUT", sectionId: "about" },
-		{ name: "PROJECTS", sectionId: "projects" },
-		{ name: "CONTACT", sectionId: "contact" },
+		{ name: "ABOUT", path: "/about", sectionId: "about" },
+		{ name: "PROJECTS", path: "/projects", sectionId: "projects" },
+		{ name: "CONTACT", path: "/contact", sectionId: "contact" },
 	];
 
 	let [open, setOpen] = useState(false);
-	let [active, setActive] = useState("");
+	const location = useLocation();
 
-	const handleClick = () => {
-		if (open) {
-			setOpen(false);
-		}
+	const handleClick = (link) => {
+		// Scroll to the corresponding section
+		scrollToRef(link.sectionId);
+		// Close the menu
+		setOpen(false);
 	};
 
 	return (
@@ -45,17 +46,11 @@ export default function NavBar({ scrollToRef }) {
 					{Links.map((link, index) => (
 						<li className="md:ml-8 md:my-0 my-7 font-semibold" key={index}>
 							<Link
-								to={`#${link.sectionId}`}
-								className={
-									active === link.name
-										? "text-red-500"
-										: "text-gray-800 hover:text-blue-400 duration-500 cursor-pointer"
-								}
-								onClick={() => {
-									handleClick(); // call first to close menu before scrolling
-									setActive(link.name);
-									scrollToRef(link.sectionId);
-								}}>
+								to={link.path}
+								className={`text-gray-800 hover:text-blue-400 duration-500 cursor-pointer ${
+									location.hash === `#${link.sectionId}` ? "text-red-500" : ""
+								}`}
+								onClick={() => handleClick(link)}>
 								{link.name}
 							</Link>
 						</li>

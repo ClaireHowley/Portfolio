@@ -3,7 +3,7 @@ import { useRef, useEffect, forwardRef, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 
 const Hello = forwardRef((props, ref) => {
-	const [isTypingComplete, setIsTypingComplete] = useState(false);
+	// const [isTypingComplete, setIsTypingComplete] = useState(false);
 
 	// const sketchRef = useRef();
 
@@ -37,9 +37,9 @@ const Hello = forwardRef((props, ref) => {
 		));
 	};
 
-	const handleDone = () => {
-		setIsTypingComplete(true);
-	};
+	// const handleDone = () => {
+	// 	setIsTypingComplete(true);
+	// };
 
 	return (
 		<div className="h-lvh" ref={ref}>
@@ -48,25 +48,25 @@ const Hello = forwardRef((props, ref) => {
 					{generateTSpans()}
 				</text>
 			</svg>
-			<div>
-				{!isTypingComplete && (
-					<Typewriter
-						words={["My name is Claire, I am a frontend developer"]}
-						loop={1}
-						cursor
-						cursorStyle="|"
-						typeSpeed={70}
-						deleteSpeed={50}
-						delaySpeed={1000}
-						// wrapperClassName={"text-blue-600"}
-						// onLoopDone={handleDone}
-					/>
-				)}
-				{isTypingComplete && (
+
+			<div className="text-blue-600">
+				{" "}
+				{/*style comes from parent element*/}
+				<Typewriter
+					words={["My name is Claire, I am a frontend developer"]}
+					loop={1}
+					cursor
+					cursorStyle="|"
+					typeSpeed={70}
+					// deleteSpeed={50}
+					// delaySpeed={1000}
+					// onLoopDone={handleDone}
+				/>
+				{/* {isTypingComplete && (
 					<span className="text-blue-600">
 						My name is Claire, I am a frontend developer
 					</span>
-				)}
+				)} */}
 			</div>
 		</div>
 	);

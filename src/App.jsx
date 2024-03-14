@@ -7,7 +7,9 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
+import { useLoader } from "@react-three/fiber";
+import HelloImage from "./components/HelloImage";
 
 function App() {
 	useEffect(() => {
@@ -34,15 +36,14 @@ function App() {
 	}
 
 	return (
-		<BrowserRouter>
-			<div className="bg-yellow-200 font-sans, p-10">
-				<NavBar scrollToRef={scrollToRef} />
-				<Hello className="pt-20" word="Hello there" />
-				<AboutMe id="about" ref={aboutRef} dataAos="zoom-in" />
-				<Projects id="projects" ref={projectsRef} />
-				<Contact id="contact" ref={contactRef} />
-			</div>
-		</BrowserRouter>
+		<div className="bg-yellow-200 font-sans, p-10">
+			<NavBar scrollToRef={scrollToRef} />
+			<HelloImage />
+			<Hello className="pt-20" word="Hello there" />
+			<AboutMe id="about" ref={aboutRef} dataAos="zoom-in" />
+			<Projects id="projects" ref={projectsRef} />
+			<Contact id="contact" ref={contactRef} />
+		</div>
 	);
 }
 
