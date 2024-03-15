@@ -43,7 +43,7 @@ const Hello = forwardRef((props, ref) => {
 
 	return (
 		<div className="h-lvh" ref={ref}>
-			<svg className="text-6xl md:text-8xl pt-10 md:pt-15 w-full">
+			<svg className="text-6xl md:text-8xl pt-10 md:pt-20 w-full">
 				<text textAnchor="middle" x="30%" y="55%">
 					{generateTSpans()}
 				</text>

@@ -4,22 +4,22 @@ import bottomImage from "../images/HelloImageBottom.png";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function HelloImage() {
-	const ref = useRef(null);
+	const helloImageRef = useRef(null);
 
 	const { scrollYProgress } = useScroll({
-		target: ref,
+		target: helloImageRef,
 		offset: ["start start", "end start"], // defines how the animation work
 	});
 
-	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-	const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "400%"]);
+	const textY = useTransform(scrollYProgress, [0, 1], ["0%", "800%"]);
 
 	return (
 		<div className="w-full h-screen overflow-hidden relative grid place-items-center">
 			<motion.h1
-				style={{ textY }}
-				className="font-bold text-white text 7-xl relative z-10">
-				TEST
+				style={{ y: textY }}
+				className="font-bold text-white text-9xl md:text-12xl relative z-30">
+				HELLO
 			</motion.h1>
 			<motion.div
 				className="absolute inset-0 z-0"
@@ -29,13 +29,13 @@ export default function HelloImage() {
 					backgroundSize: "cover",
 					y: backgroundY,
 				}}></motion.div>
-			<div
+			<motion.div
 				className="absolute inset-0 z-20"
 				style={{
 					backgroundImage: `url(${bottomImage})`,
 					backgroundPosition: "bottom",
 					backgroundSize: "cover",
-				}}></div>
+				}}></motion.div>
 		</div>
 	);
 }
