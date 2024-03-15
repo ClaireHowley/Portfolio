@@ -25,7 +25,7 @@ export default function HelloImage() {
 				className="absolute inset-0 z-0"
 				style={{
 					backgroundImage: `url(${topImage})`,
-					backgroundPosition: "bottom",
+					backgroundPosition: "top",
 					backgroundSize: "cover",
 					y: backgroundY,
 				}}></motion.div>
@@ -33,7 +33,7 @@ export default function HelloImage() {
 				className="absolute inset-0 z-20"
 				style={{
 					backgroundImage: `url(${bottomImage})`,
-					backgroundPosition: "bottom",
+					backgroundPosition: "top",
 					backgroundSize: "cover",
 				}}></motion.div>
 		</div>

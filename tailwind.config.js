@@ -2,7 +2,11 @@
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
-		extend: {},
+		extend: {
+			fontSize: {
+				"12xl": "250px",
+			},
+		},
 		position: {
 			sticky: "sticky",
 		},
