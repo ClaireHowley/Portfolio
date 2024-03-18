@@ -1,36 +1,22 @@
-import Claire from "../images/Claire.jpg";
 import { forwardRef } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
-const AboutMe = forwardRef(({ dataAos }, ref) => {
+const AboutMe = forwardRef((props, ref) => {
 	return (
 		<div
 			id="about"
 			ref={ref} // Corrected assignment of ref
-			className="bg-white h-lvh flex items-stretch relative rounded-full m-10 overflow-hidden"
-			data-aos={dataAos}>
-			{/* Content Half */}
-			<div className="w-1/2 flex items-center">
-				<div className="w-full text-center p-4 md:p-10">
-					<h2 className="font-extrabold text-2xl md:text-3xl lg:text-4xl">
-						About Me
-					</h2>
-					<p className="text-sm sm:text-base md:text-lg lg:text-xl">
-						AD LOREM IPSUM GENERATOR Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-						exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-						esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum
-					</p>
-				</div>
-			</div>
-			{/* Background Image Half */}
-			<div className="w-1/2 relative">
-				<div
-					className="absolute inset-0 bg-cover bg-center bg-opacity-75 bg-blur"
-					style={{ backgroundImage: `url(${Claire})`, opacity: 0.6 }}></div>
+			className="bg-white h-60">
+			<div className="text-blue-600 md:text-3xl text-2xl pl-10 pt-10 md:pl-20 md:pl-20">
+				{" "}
+				{/*style comes from parent element*/}
+				<Typewriter
+					words={["My name is Claire, I am a frontend developer"]}
+					loop={1}
+					cursor
+					cursorStyle="|"
+					typeSpeed={50}
+				/>
 			</div>
 		</div>
 	);
