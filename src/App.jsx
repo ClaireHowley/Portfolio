@@ -31,7 +31,7 @@ function App() {
 		<div className="bg-yellow-200 font-sans">
 			<NavBar scrollToRef={scrollToRef} />
 			<HelloImage />
-			<AboutMe id="about" ref={aboutRef} />
+			<AboutMe id="about" ref={aboutRef} scrollToRef={scrollToRef} />
 			{/** dataAos="zoom-in" **/}
 			<Projects id="projects" ref={projectsRef} />
 			<Contact id="contact" ref={contactRef} />
