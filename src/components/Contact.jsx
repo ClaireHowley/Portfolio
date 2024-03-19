@@ -19,7 +19,7 @@ const Contact = forwardRef((props, ref) => {
 	}
 
 	return (
-		<div ref={ref} id="contact">
+		<div ref={ref} id="contact" className="bg-newPink">
 			Contact
 			<Canvas shadowMap>
 				<directionalLight position={[0, 0, 2]} intensity={0.5} />

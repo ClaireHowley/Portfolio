@@ -6,9 +6,13 @@ export default {
 			fontSize: {
 				"12xl": "250px",
 			},
-		},
-		position: {
-			sticky: "sticky",
+			position: {
+				sticky: "sticky",
+			},
+			colors: {
+				metal: "#112121",
+				newPink: "#FDA8AF",
+			},
 		},
 	},
 	plugins: ["tailwindcss-animate"],

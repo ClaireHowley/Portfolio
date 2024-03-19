@@ -28,7 +28,7 @@ function App() {
 	}
 
 	return (
-		<div className="font-sans">
+		<div className="bg-metal font-sans">
 			<NavBar scrollToRef={scrollToRef} />
 			<HelloImage />
 			<AboutMe id="about" ref={aboutRef} scrollToRef={scrollToRef} />
