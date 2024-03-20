@@ -25,9 +25,9 @@ const Contact = forwardRef((props, ref) => {
 			id="contact"
 			className="bg-newPink h-screen flex flex-col justify-center items-center">
 			<h1 className="text-3xl font-bold mb-8 text-white">Contact</h1>
-			<form action="/success" name="contact" method="post" data-netlify="true">
+			<form action="/contact" name="contact" method="post" data-netlify="true">
 				<input type="hidden" name="form-name" value="contact" />
-				<TextField varient="outlined" label="Full Name" name="ame" />{" "}
+				<TextField varient="outlined" label="Full Name" name="name" />{" "}
 				<TextField varient="outlined" label="Email" name="email" />{" "}
 				<TextField
 					varient="outlined"
