@@ -1,8 +1,33 @@
-import { forwardRef } from "react";
+import {
+	motion,
+	useMotionTemplate,
+	useMotionValue,
+	animate,
+} from "framer-motion";
+import { forwardRef, useEffect } from "react";
+
+const colors = ["#5c0067", "#2e003d", "#0084aa", "#00d4ff"];
 
 const Projects = forwardRef((props, ref) => {
+	const color = useMotionValue(colors[0]);
+	const backgroundImage = useMotionTemplate`
+		radial-gradient(125% 100% at 50% 0%, #5c0067 50%, ${color})
+	`;
+
+	useEffect(() => {
+		const animation = animate(color, colors, {
+			ease: "easeInOut",
+			duration: 10,
+			repeat: Infinity,
+			repeatType: "mirror",
+		});
+	}, []);
+
 	return (
-		<div
+		<motion.div
+			style={{
+				backgroundImage,
+			}}
 			ref={ref}
 			id="projects"
 			className="h-screen flex flex-col justify-center items-center">
@@ -18,7 +43,7 @@ const Projects = forwardRef((props, ref) => {
 					Project 3
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 });
 

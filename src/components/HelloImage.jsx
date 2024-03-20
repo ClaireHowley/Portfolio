@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import topImage from "../images/HelloImage.jpg";
 import bottomImage from "../images/HelloImageBottom.png";
@@ -19,7 +20,7 @@ export default function HelloImage() {
 			className="w-full h-screen overflow-hidden relative grid place-items-center">
 			<motion.h1
 				style={{ y: textY }}
-				className="font-bold text-white text-9xl md:text-12xl relative z-30">
+				className="font-bold text-white text-9xl  md:text-12xl relative z-30">
 				HELLO
 			</motion.h1>
 			<motion.div

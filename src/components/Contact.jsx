@@ -23,21 +23,28 @@ const Contact = forwardRef((props, ref) => {
 		<div
 			ref={ref}
 			id="contact"
-			className="bg-newPink h-screen flex flex-col justify-center items-center">
+			className="bg-newPink h-screen flex flex-col items-center justify-center">
 			<h1 className="text-3xl font-bold mb-8 text-white">Contact</h1>
-			<form action="/contact" name="contact" method="post" data-netlify="true">
-				<input type="hidden" name="form-name" value="contact" />
-				<TextField varient="outlined" label="Full Name" name="name" />{" "}
-				<TextField varient="outlined" label="Email" name="email" />{" "}
-				<TextField
-					varient="outlined"
-					label="Message"
-					name="message"
-					multiline
-					rows={10}
-				/>
-				<Button type="submit">Submit</Button>
+			<form className="max-w-screen-md mx-auto px-4">
+				<div className="grid grid-cols-1 gap-4 md:justify-self-start">
+					<TextField variant="outlined" label="Full Name" name="name" />
+					<TextField variant="outlined" label="Email" name="email" />
+					<TextField
+						variant="outlined"
+						label="Message"
+						name="message"
+						multiline
+						rows={6}
+					/>
+					<Button
+						variant="contained"
+						// className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-md mt-4"
+						type="submit">
+						Submit
+					</Button>
+				</div>
 			</form>
+
 			{/* <Canvas shadowMap>
 				<directionalLight position={[0, 0, 2]} intensity={0.5} />
 				<ambientLight intensity={0.1} />
