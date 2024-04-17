@@ -9,25 +9,25 @@ import { forwardRef, useEffect } from "react";
 const colors = ["#5c0067", "#2e003d", "#0084aa", "#00d4ff"];
 
 const Projects = forwardRef((props, ref) => {
-	const color = useMotionValue(colors[0]);
-	const backgroundImage = useMotionTemplate`
-		radial-gradient(125% 100% at 50% 0%, #5c0067 50%, ${color})
-	`;
+	// const color = useMotionValue(colors[0]);
+	// const backgroundImage = useMotionTemplate`
+	// 	radial-gradient(125% 100% at 50% 0%, #5c0067 50%, ${color})
+	// `;
 
-	useEffect(() => {
-		const animation = animate(color, colors, {
-			ease: "easeInOut",
-			duration: 10,
-			repeat: Infinity,
-			repeatType: "mirror",
-		});
-	}, []);
+	// useEffect(() => {
+	// 	const animation = animate(color, colors, {
+	// 		ease: "easeInOut",
+	// 		duration: 8,
+	// 		repeat: Infinity,
+	// 		repeatType: "mirror",
+	// 	});
+	// }, []);
 
 	return (
 		<motion.div
-			style={{
-				backgroundImage,
-			}}
+			// style={{
+			// 	backgroundImage,
+			// }}
 			ref={ref}
 			id="projects"
 			className="h-screen flex flex-col justify-center items-center">
