@@ -24,7 +24,7 @@ const Contact = forwardRef((props, ref) => {
 			ref={ref}
 			id="contact"
 			className="bg-newPink h-screen flex flex-col items-center justify-center">
-			<h1 className="text-3xl font-bold mb-8 text-white">Contact</h1>
+			<h1 className="text-3xl font-bold mb-8 text-white">Let's chat!</h1>
 			<form className="max-w-screen-md mx-auto px-4">
 				<div className="grid grid-cols-1 gap-4 md:justify-self-start">
 					<TextField variant="outlined" label="Full Name" name="name" />
