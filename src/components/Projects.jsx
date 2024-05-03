@@ -12,7 +12,7 @@ const projectsData = [
 
 const Projects = forwardRef((props, ref) => {
 	return (
-		<div
+		<motion.div
 			ref={ref}
 			id="projects"
 			className="h-screen flex flex-col justify-center items-center">
@@ -26,7 +26,7 @@ const Projects = forwardRef((props, ref) => {
 					/>
 				))}
 			</div>
-		</div>
+		</motion.div>
 	);
 });
 

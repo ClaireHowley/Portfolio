@@ -16,7 +16,7 @@ const AboutMe = forwardRef((props, ref) => {
 	}, [inView]);
 
 	return (
-		<div id="about" ref={ref} className="bg-white h-fit p-5">
+		<div id="about" ref={ref} className="bg-white h-1/6 p-5">
 			<motion.div
 				ref={inViewRef}
 				className="text-metal md:text-3xl text-2xl pl-10 md:pl-10"

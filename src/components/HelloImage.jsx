@@ -7,8 +7,7 @@ import {
 	useTransform,
 	animate,
 } from "framer-motion";
-// import topImage from "../images/HelloImage.jpg";
-// import bottomImage from "../images/HelloImageBottom.png";
+import AboutMe from "./AboutMe";
 
 export default function HelloImage() {
 	const helloImageRef = useRef(null);
@@ -37,20 +36,25 @@ export default function HelloImage() {
 	}, []);
 
 	return (
-		<motion.div
-			style={{
-				backgroundImage,
-			}}
-			ref={helloImageRef}
-			className="w-full h-screen overflow-hidden relative grid place-items-center">
-			<motion.h1
+		<div
+			className="h-screen
+		">
+			<motion.div
 				style={{
-					y: textY,
+					backgroundImage,
 				}}
-				className="font-bold text-white text-9xl  md:text-12xl relative z-30">
-				HELLO
-			</motion.h1>
-		</motion.div>
+				ref={helloImageRef}
+				className="h-5/6 overflow-hidden relative grid place-items-center">
+				<motion.h1
+					style={{
+						y: textY,
+					}}
+					className="font-bold text-white text-9xl  md:text-12xl relative z-30">
+					HELLO
+				</motion.h1>
+			</motion.div>
+			<AboutMe />
+		</div>
 	);
 }
 
