@@ -1,4 +1,5 @@
 import React from "react";
+import { animate, motion, useAnimation } from "framer-motion";
 
 export default function MySkills() {
 	const skills = [
@@ -12,19 +13,58 @@ export default function MySkills() {
 		{ id: 8, skill: "Next.js" },
 		{ id: 9, skill: "Node.js" },
 	];
+
+	const mySkillVariants = {
+		initial: {
+			opacity: 0,
+			y: 100,
+		},
+		animate: ({ index }) => ({
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.05 * index,
+			},
+		}),
+	};
+
+	const skillHeadingAnimationVariants = {
+		initial: {
+			opacity: 0,
+			x: -100,
+		},
+		animate: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				delay: 1,
+			},
+		},
+	};
+
 	return (
 		<div>
-			<h1 className="p-10 text-3xl font-bold mb-8 text-metal text-center">
+			<motion.h1
+				className="p-10 text-3xl font-bold mb-8 text-metal text-center"
+				variants={skillHeadingAnimationVariants}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true }}>
 				My Skills
-			</h1>
+			</motion.h1>
 
 			<div className="grid grid-cols-3 gap-4">
 				{skills.map((mySkill, index) => (
-					<div
+					<motion.ul
 						key={index}
-						className="text-metal border border-indigo-600 rounded-sm shadow-2xl p-5 text-center">
+						className="text-metal border border-indigo-600 rounded-sm shadow-2xl p-5 text-center"
+						variants={mySkillVariants}
+						initial="initial"
+						whileInView="animate"
+						viewport={{ once: true }}
+						custom={index}>
 						{mySkill.skill}
-					</div>
+					</motion.ul>
 				))}
 			</div>
 		</div>

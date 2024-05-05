@@ -33,6 +33,17 @@ const AboutMe = forwardRef((props, ref) => {
 					/>
 				)}
 			</motion.div>
+			{/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum
+			venenatis tellus, quis volutpat quam posuere quis. Vestibulum quis quam a
+			tortor finibus eleifend. Ut sollicitudin maximus orci, vitae varius est
+			lacinia quis. Duis risus odio, elementum sed consequat ut, ultrices in
+			massa. Morbi interdum placerat nisl sit amet varius. Sed eget tortor nibh.
+			Nunc pulvinar dolor nec ante lacinia, at condimentum magna aliquet. Ut sed
+			consectetur dolor. Phasellus interdum purus magna, id commodo risus auctor
+			at. Integer eleifend mi at aliquam feugiat. Morbi blandit quam massa, eget
+			ornare massa ullamcorper eget. Aliquam ac egestas justo. Suspendisse sed
+			ex hendrerit, convallis odio in, semper felis. Integer cursus posuere
+			urna, id consequat justo fermentum ut. */}
 		</div>
 	);
 });

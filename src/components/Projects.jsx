@@ -1,18 +1,45 @@
 import { animate, motion, useAnimation } from "framer-motion";
-import { forwardRef, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { forwardRef, useEffect, useState } from "react";
 import ProjectItem from "./ProjectItem";
 import QuickGreek from "../images/QuickGreek.png";
 import MySkills from "./MySkills";
 
 const projectsData = [
-	{ id: 1, title: "Quick Greek", image: QuickGreek },
-	{ id: 2, title: "Feature Extension" },
-	{ id: 3, title: "Social Ripple" },
-	{ id: 4, title: "Community Board" },
+	{
+		id: 1,
+		title: "Quick Greek",
+		image: QuickGreek,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis urna arcu. Mauris leo sapien, ultricies in iaculis in, volutpat in urna. Sed pharetra sem magna, quis feugiat dui viverra a. Pellentesque ante justo, placerat vel est eget, suscipit dictum mauris.",
+	},
+	{
+		id: 2,
+		title: "Feature Extension",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis urna arcu. Mauris leo sapien, ultricies in iaculis in, volutpat in urna. Sed pharetra sem magna, quis feugiat dui viverra a. Pellentesque ante justo, placerat vel est eget, suscipit dictum mauris.",
+	},
+	{
+		id: 3,
+		title: "Social Ripple",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis urna arcu. Mauris leo sapien, ultricies in iaculis in, volutpat in urna. Sed pharetra sem magna, quis feugiat dui viverra a. Pellentesque ante justo, placerat vel est eget, suscipit dictum mauris.",
+	},
+	{
+		id: 4,
+		title: "Community Board",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis urna arcu. Mauris leo sapien, ultricies in iaculis in, volutpat in urna. Sed pharetra sem magna, quis feugiat dui viverra a. Pellentesque ante justo, placerat vel est eget, suscipit dictum mauris.",
+	},
 ];
 
 const Projects = forwardRef((props, ref) => {
+	//handling the state of which project is clicked
+	const [selectedProject, setSelectedProject] = useState(null);
+
+	const handleClick = (projectId) => {
+		setSelectedProject(projectId === selectedProject ? null : projectId);
+	};
+
 	const fadeInAnimationVariants = {
 		initial: {
 			opacity: 0,
@@ -22,9 +49,23 @@ const Projects = forwardRef((props, ref) => {
 			opacity: 1,
 			y: 0,
 			transition: {
-				delay: 0.05,
+				delay: 0.5,
 			},
 		}),
+	};
+
+	const projectHeadingAnimationVariants = {
+		initial: {
+			opacity: 0,
+			x: -100,
+		},
+		animate: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				delay: 1,
+			},
+		},
 	};
 
 	return (
@@ -32,7 +73,14 @@ const Projects = forwardRef((props, ref) => {
 			ref={ref}
 			id="projects"
 			className="h-screen flex flex-col justify-center items-center">
-			<h1 className="text-3xl font-bold mb-8 text-metal">Projects</h1>
+			<motion.h1
+				className="text-3xl font-bold mb-8 text-metal"
+				variants={projectHeadingAnimationVariants}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true }}>
+				Projects
+			</motion.h1>
 
 			<motion.div
 				className="flex justify-between space-x-8 md:space-x-16"
@@ -45,6 +93,9 @@ const Projects = forwardRef((props, ref) => {
 						key={project.id}
 						title={project.title}
 						image={project.image}
+						description={project.description}
+						isSelected={selectedProject === project.id}
+						onClick={() => handleClick(project.id)}
 					/>
 				))}
 			</motion.div>
