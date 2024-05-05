@@ -5,6 +5,7 @@ export default {
 		extend: {
 			fontSize: {
 				"12xl": "250px",
+				"10xl": "180px",
 			},
 			position: {
 				sticky: "sticky",

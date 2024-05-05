@@ -49,7 +49,7 @@ export default function HelloImage() {
 					style={{
 						y: textY,
 					}}
-					className="font-bold text-white text-9xl  md:text-12xl relative z-30">
+					className="font-bold text-white text-10xl  md:text-12xl relative z-30">
 					HELLO
 				</motion.h1>
 			</motion.div>
