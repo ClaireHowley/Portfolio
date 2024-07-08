@@ -38,6 +38,7 @@ const Projects = forwardRef((props, ref) => {
 
 	const handleClick = (projectId) => {
 		setSelectedProject(projectId === selectedProject ? null : projectId);
+		console.log(`selected + ${projectId}`)
 	};
 
 	const fadeInAnimationVariants = {

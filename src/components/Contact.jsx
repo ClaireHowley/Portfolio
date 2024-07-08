@@ -4,29 +4,15 @@ import { OrbitControls } from "@react-three/drei";
 import { Button, TextField } from "@mui/material";
 
 const Contact = forwardRef((props, ref) => {
-	// function Sphere({ position, size, color }) {
-	// 	const sphereRef = useRef();
-	// 	useFrame((state, delta) => {
-	// 		sphereRef.current.rotation.x += delta;
-	// 		// sphereRef.current.rotation.y += delta;
-	// 	});
-
-	// 	return (
-	// 		<mesh ref={sphereRef} position={position}>
-	// 			<sphereGeometry args={size} />
-	// 			<meshStandardMaterial color={color} />
-	// 		</mesh>
-	// 	);
-	// }
-
+	
 	return (
 		<div
 			ref={ref}
 			id="contact"
-			className="bg-newPink h-screen flex flex-col items-center justify-center">
+			className="bg-newPink h-screen flex flex-col items-center justify-center lg:items-start lg:px-16">
 			<h1 className="text-3xl font-bold mb-8 text-white">Let's chat!</h1>
-			<form className="max-w-screen-md mx-auto px-4">
-				<div className="grid grid-cols-1 gap-4 md:justify-self-start">
+			<form>
+				<div className="grid grid-cols-1 gap-8 items center "> 
 					<TextField variant="outlined" label="Full Name" name="name" />
 					<TextField variant="outlined" label="Email" name="email" />
 					<TextField
@@ -44,13 +30,7 @@ const Contact = forwardRef((props, ref) => {
 					</Button>
 				</div>
 			</form>
-
-			{/* <Canvas shadowMap>
-				<directionalLight position={[0, 0, 2]} intensity={0.5} />
-				<ambientLight intensity={0.1} />
-				<OrbitControls />
-				<Sphere position={[0, 0, 0]} size={[2, 34, 34]} color={"blue"} />
-			</Canvas> */}
+			
 		</div>
 	);
 });
