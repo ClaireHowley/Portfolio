@@ -73,14 +73,13 @@ const Projects = forwardRef((props, ref) => {
 		<div
 			ref={ref}
 			id="projects"
-			className="h-screen flex flex-col justify-center items-center">
+			className={`min-h-screen flex flex-col justify-center items-center ${selectedProject ? 'h-[120vh]' : 'h-screen'}`}>
 			<motion.h1
 				className="text-3xl font-bold mb-8 text-metal"
 				variants={projectHeadingAnimationVariants}
 				initial="initial"
 				whileInView="animate"
 				viewport={{ once: true }}>
-				Projects
 			</motion.h1>
 
 			<motion.div
@@ -101,7 +100,7 @@ const Projects = forwardRef((props, ref) => {
 				))}
 			</motion.div>
 
-			<MySkills />
+			<MySkills/>
 		</div>
 	);
 });
