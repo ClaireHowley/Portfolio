@@ -31,7 +31,7 @@ function App() {
 		<div className="bg-white font-sans">
 			<NavBar scrollToRef={scrollToRef} />
 			<HelloImage />
-			{/* <AboutMe id="about" ref={aboutRef} scrollToRef={scrollToRef} /> */}
+			<AboutMe id="about" ref={aboutRef} scrollToRef={scrollToRef} />
 			<Projects id="projects" ref={projectsRef} />
 			<Contact id="contact" ref={contactRef} />
 			<Bye className="pt-20" word="Come back soon" />

@@ -13,7 +13,7 @@ export default function HelloImage() {
 	const helloImageRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: helloImageRef,
-		offset: ["start start", "end start"], // defines how the animation work
+		offset: ["start start", "end start"], 
 	});
 
 	// const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -28,23 +28,22 @@ export default function HelloImage() {
 
 	useEffect(() => {
 		const animation = animate(color, colors, {
-			ease: "easeInOut",
-			duration: 5,
+			ease: "easeOut",
+			duration: 3.5,
 			repeat: Infinity,
 			repeatType: "mirror",
+			immediate: true,
 		});
 	}, []);
 
 	return (
-		<div
-			className="h-screen
-		">
+		
 			<motion.div
 				style={{
 					backgroundImage,
 				}}
 				ref={helloImageRef}
-				className="h-5/6 overflow-hidden relative grid place-items-center">
+				className="h-screen overflow-hidden relative grid place-items-center">
 				<motion.h1
 					style={{
 						y: textY,
@@ -53,27 +52,8 @@ export default function HelloImage() {
 					HELLO
 				</motion.h1>
 			</motion.div>
-			<AboutMe />
-		</div>
 	);
 }
 
-{
-	/* 
-moving images on scroll
-<motion.div
-				className="absolute inset-0 z-0"
-				style={{
-					backgroundImage: `url(${topImage})`,
-					backgroundPosition: "top",
-					backgroundSize: "cover",
-					y: backgroundY,
-				}}></motion.div>
-			<motion.div
-				className="absolute inset-0 z-20"
-				style={{
-					backgroundImage: `url(${bottomImage})`,
-					backgroundPosition: "top",
-					backgroundSize: "cover",
-				}}></motion.div> */
-}
+
+

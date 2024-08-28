@@ -12,6 +12,11 @@ export default function MySkills() {
 		{ id: 7, skill: "Sequelize" },
 		{ id: 8, skill: "Next.js" },
 		{ id: 9, skill: "Node.js" },
+		{id: 10, skill: "Dart"},
+		{id: 11, skill: "Flutter"},
+		{id: 12, skill: "Go"}
+
+
 	];
 
 	const mySkillVariants = {
@@ -45,7 +50,7 @@ export default function MySkills() {
 	return (
 		<div>
 			<motion.h1
-				className="p-10 text-3xl font-bold mb-8 text-metal text-center"
+				className="p-10 text-3xl font-bold text-metal text-center"
 				variants={skillHeadingAnimationVariants}
 				initial="initial"
 				whileInView="animate"

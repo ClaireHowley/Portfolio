@@ -15,8 +15,21 @@ const AboutMe = forwardRef((props, ref) => {
 		}
 	}, [inView]);
 
+
+	const aboutMeParagraphVariants = {
+		initial: {
+			opacity: 0,
+			x: -100,
+		},
+		animate: {
+			opacity: 1,
+			x: 0,
+			
+		},
+	};
+
 	return (
-		<div id="about" ref={ref} className="bg-white h-1/6 p-5">
+		<div id="about" ref={ref} className="bg-white min-h-screen p-5">
 			<motion.div
 				ref={inViewRef}
 				className="text-metal md:text-3xl text-2xl pl-10 md:pl-10"
@@ -25,7 +38,7 @@ const AboutMe = forwardRef((props, ref) => {
 				transition={{ duration: 0.5 }}>
 				{isTyping && (
 					<Typewriter
-						words={["My name is Claire, I am a frontend developer"]}
+						words={["My name is Claire, I am a Software Engineer"]}
 						loop={1}
 						cursor
 						cursorStyle="|"
@@ -33,17 +46,14 @@ const AboutMe = forwardRef((props, ref) => {
 					/>
 				)}
 			</motion.div>
-			{/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum
-			venenatis tellus, quis volutpat quam posuere quis. Vestibulum quis quam a
-			tortor finibus eleifend. Ut sollicitudin maximus orci, vitae varius est
-			lacinia quis. Duis risus odio, elementum sed consequat ut, ultrices in
-			massa. Morbi interdum placerat nisl sit amet varius. Sed eget tortor nibh.
-			Nunc pulvinar dolor nec ante lacinia, at condimentum magna aliquet. Ut sed
-			consectetur dolor. Phasellus interdum purus magna, id commodo risus auctor
-			at. Integer eleifend mi at aliquam feugiat. Morbi blandit quam massa, eget
-			ornare massa ullamcorper eget. Aliquam ac egestas justo. Suspendisse sed
-			ex hendrerit, convallis odio in, semper felis. Integer cursus posuere
-			urna, id consequat justo fermentum ut. */}
+			<motion.div
+			variants={aboutMeParagraphVariants}
+			initial="initial"
+			whileInView="animate"
+			viewport={{ once: true }}>
+			Irish gal residing in Barcelona, recently discovered a love for tech. Eager to fuse my diverse experience in healthcare, tourism and education with the tech world.
+			</motion.div>
+		
 		</div>
 	);
 });
